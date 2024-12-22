@@ -19,7 +19,7 @@ def type_text(text):
     print("输入完成")
 
 if __name__ == "__main__":
-    text_to_type = "这是要输入的文本"
+    text_to_type = "试试"
     type_text(text_to_type)
 
     # text_to_type = "This is the target."
