@@ -7,10 +7,10 @@ import numpy as np
 # Set data (7 methods)
 data = {
     'group': ['Identity', 'NDA', 'EventDrop', 'EventAug (ours)', 'EventMix', 'EventAugmentation', 'EventRPG'],
-    'ANN on \n DVS128 Gesture': [95.49, 97.22, 96.18, 98.26, 91.80, 88.75, None],
-    '': [79.58, None, None, 90.16, 89.20, 87.61, None],
+    'ANN on \n DVS128 Gesture': [95.49, None, 96.18, 98.26, 91.80, 88.75, None],
+    'ANN on \n N-Caltech101': [79.58, None, None, 90.16, 89.20, 87.61, None],
     'SNN on \n DVS128 Gesture': [93.75, 95.83, 94.44, 98.62, 96.75, 96.25, 96.53],
-    '   ': [79.10, 83.70, None, 91.13, 79.47, 75.25, 85.62],
+    'SNN on \n N-Caltech101': [79.10, 83.70, None, 91.13, 79.47, 75.25, 85.62],
 }
 
 # Convert to DataFrame
