@@ -1,6 +1,7 @@
 import ctypes
 from time import sleep
 
+# 目前仅支持英文
 # 定义一些常量
 PUL = ctypes.POINTER(ctypes.c_ulong)
 
@@ -71,7 +72,7 @@ def type_string(input_string):
 # 示例使用
 def main():
     sleep(2)  # 等待2秒以便切换到目标窗口
-    type_string("Hello World")
+    type_string("hello world!")
 
 if __name__ == "__main__":
     main()

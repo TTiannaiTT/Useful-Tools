@@ -6,11 +6,11 @@ import numpy as np
 
 # Set data (7 methods)
 data = {
-    'group': ['Identity', 'NDA', 'EventDrop', 'EventAug (ours)', 'EventMix', 'EventAugmentation', 'EventRPG'],
-    'ANN on \n DVS128 Gesture': [95.49, None, 96.18, 98.26, 91.80, 88.75, None],
-    'ANN on \n N-Caltech101': [79.58, None, None, 90.16, 89.20, 87.61, None],
-    'SNN on \n DVS128 Gesture': [93.75, 95.83, 94.44, 98.62, 96.75, 96.25, 96.53],
-    'SNN on \n N-Caltech101': [79.10, 83.70, None, 91.13, 79.47, 75.25, 85.62],
+    'group': ['Identity', 'NDA', 'EventDrop', 'EventAug (ours)', 'EventMix', 'EventAugmentation', 'EventRPG', 'ShapeAug', 'ShapeAug++'],
+    'ANN on \n DVS128 Gesture': [95.49, None, 96.18, 98.26, 91.80, 88.75, None,None, None],
+    'ANN on \n N-Caltech101': [79.58, None, None, 90.16, 89.20, 87.61, None, None, None],
+    'SNN on \n DVS128 Gesture': [93.75, 95.83, 94.44, 98.62, 96.75, 96.25, 96.53, 91.70, 92.40],
+    'SNN on \n N-Caltech101': [79.10, 83.70, None, 91.13, 79.47, 75.25, 85.62, 68.70, 72.40],
 }
 
 # Convert to DataFrame
@@ -31,7 +31,7 @@ angles = [n / float(N) * 2 * pi for n in range(N)]
 angles += angles[:1]
 
 # Initialise the radar chart
-fig, ax = plt.subplots(figsize=(10, 10), subplot_kw={'polar': True})
+fig, ax = plt.subplots(figsize=(11, 11), subplot_kw={'polar': True})
 
 # Offset for the first axis and set direction
 ax.set_theta_offset(pi / 2)
@@ -52,8 +52,8 @@ def handle_missing(values):
     return [v if v is not None else np.nan for v in values]
 
 # Academic color palette
-colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2']  # Matplotlib default
-fill_colors = ['#aec7e8', '#ffbb78', '#98df8a', '#ff9896', '#c5b0d5', '#c49c94', '#f7b6d2']  # Lighter variants for fill
+colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22']  # Extended to 9 colors
+fill_colors = ['#aec7e8', '#ffbb78', '#98df8a', '#ff9896', '#c5b0d5', '#c49c94', '#f7b6d2', '#c7c7c7', '#dbdb8d']#lighter variants for fill
 
 # Labels for each method
 labels = df['group'].tolist()
