@@ -5,12 +5,16 @@ Handy tools and scripts for personal use. 自用的好用小工具和脚本呀�
 
 ## Introduction
 
+### painting
+An example code for painting lidar graph.  
+Usually used for performance comparison between different algorithms.
+
 ### force_paste
 
-The `force_paste.py` script allows you to simulate keyboard input for both English and Chinese text. This can be particularly useful in situations where pasting text is not allowed or possible.
+The `force_paste.py` script allows you to simulate keyboard input for both English and Chinese text. This can be particularly useful in situations where pasting text is not allowed or possible. (如一些问卷、网页等 lol)
 
 #### Functions
 
 - `type_Eng(text)`: Simulates typing English text .
-- `type_text(text)`: Simulates typing Chinese text.
+- `type_text(text)`: Simulates typing Chinese text. (PS： Under deveplopment.)
 
