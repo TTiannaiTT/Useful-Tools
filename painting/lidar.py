@@ -38,7 +38,7 @@ ax.set_theta_offset(pi / 2)
 ax.set_theta_direction(-1)
 
 # Draw one axis per variable and add labels
-plt.xticks(angles[:-1], categories)
+plt.xticks(angles[:-1], categories, fontsize=15)
 
 # Draw y-labels
 ax.set_rlabel_position(0)
@@ -82,7 +82,7 @@ for angle, category in zip(angles[:-1], categories):
             ax.text(angle, 0, 'X', ha='center', va='center', fontsize=10, color=colors[i], alpha=0.7)
 
 # Add legend
-plt.legend(loc='upper right', bbox_to_anchor=(1.1, 0.1))
+plt.legend(loc='upper right', bbox_to_anchor=(1.1, 0.22), fontsize=15)
 
 # Save the plot
 plt.savefig('./fig/radar_chart_academic_colors.png', dpi=300)
