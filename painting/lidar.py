@@ -6,12 +6,13 @@ import numpy as np
 
 # Set data (7 methods)
 data = {
-    'group': ['Identity', 'NDA', 'EventDrop', 'EventAug (ours)', 'EventMix', 'EventAugmentation', 'EventRPG', 'ShapeAug', 'ShapeAug++'],
+    'group': ['Identity', 'NDA', 'EventDrop', 'EvAug (ours)', 'EventMix', 'EventAugmentation', 'EventRPG', 'ShapeAug', 'ShapeAug++'],
     'ANN on \n DVS128 Gesture': [95.49, None, 96.18, 98.26, 91.80, 88.75, None,None, None],
     'ANN on \n N-Caltech101': [79.58, None, None, 90.16, 89.20, 87.61, None, None, None],
     'SNN on \n DVS128 Gesture': [93.75, 95.83, 94.44, 98.62, 96.75, 96.25, 96.53, 91.70, 92.40],
     'SNN on \n N-Caltech101': [79.10, 83.70, None, 91.13, 79.47, 75.25, 85.62, 68.70, 72.40],
 }
+
 
 # Convert to DataFrame
 df = pd.DataFrame(data)
@@ -64,7 +65,7 @@ for i, row in df.iterrows():
     values += values[:1]  # Ensure it closes the loop
 
     # Special styling for EventAug (ours)
-    if row['group'] == 'EventAug (ours)':
+    if row['group'] == 'EvAug (ours)':
         ax.plot(angles, values, linewidth=2.5, linestyle='solid', label=labels[i], color='#d62728')  # Highlighted line
         ax.fill(angles, [v if not np.isnan(v) else 0 for v in values], color='#E6F5D0', alpha=0.6)  # Highlighted fill
     else:
@@ -82,7 +83,18 @@ for angle, category in zip(angles[:-1], categories):
             ax.text(angle, 0, 'X', ha='center', va='center', fontsize=10, color=colors[i], alpha=0.7)
 
 # Add legend
-plt.legend(loc='upper right', bbox_to_anchor=(1.1, 0.22), fontsize=15)
+# plt.legend(loc='upper right', bbox_to_anchor=(1.1, 0.22), fontsize=15)
+handles, labels = ax.get_legend_handles_labels()
+order = [0, 1, 2, 8, 4, 5, 6, 7, 3]  # Define the desired order
+plt.legend([handles[i] for i in order], [labels[i] for i in order], loc='upper right', bbox_to_anchor=(1.1, 0.22), fontsize=15)
+
+# Highlight missing data points
+for angle, category in zip(angles[:-1], categories):
+    for i, row in df.iterrows():
+        value = row[category]
+        if pd.isna(value):
+            # Mark missing value with "X"
+            ax.text(angle, 0, 'X', ha='center', va='center', fontsize=10, color=colors[i], alpha=0.7)
 
 # Save the plot
 plt.savefig('./fig/radar_chart_academic_colors.png', dpi=300)
