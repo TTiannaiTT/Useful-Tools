@@ -6,8 +6,12 @@ Handy tools and scripts for personal use. 自用的好用小工具和脚本呀�
 ## Introduction
 
 ### painting
-An example code for painting lidar graph.  
-Usually used for performance comparison between different algorithms.
+An example code for painting academic graph.  
+#### Lidar:  
+
+#### Scatter (Performance Comparison):  
+
+#### Scatter (Data Visualization):  
 
 ### force_paste
 
